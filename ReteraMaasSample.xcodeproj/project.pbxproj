@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA52D22A259047E3006C7C9A /* rounded-mplus-1c-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA52D1FF259047E2006C7C9A /* rounded-mplus-1c-heavy.ttf */; };
+		AA52D237259047E3006C7C9A /* rounded-mplus-1mn-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA52D20C259047E2006C7C9A /* rounded-mplus-1mn-medium.ttf */; };
+		AA52D23F259047E3006C7C9A /* rounded-mplus-1mn-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA52D214259047E2006C7C9A /* rounded-mplus-1mn-bold.ttf */; };
+		AA52D240259047E3006C7C9A /* rounded-mplus-1c-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA52D215259047E2006C7C9A /* rounded-mplus-1c-black.ttf */; };
+		AA52D241259047E3006C7C9A /* rounded-mplus-1c-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA52D216259047E2006C7C9A /* rounded-mplus-1c-bold.ttf */; };
+		AA52D249259047E3006C7C9A /* rounded-mplus-1mn-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA52D21E259047E2006C7C9A /* rounded-mplus-1mn-light.ttf */; };
+		AA52D2552590D0E0006C7C9A /* ai_concierge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */; };
 		AAB4892E258EEA2C005B040E /* ReteraMaasSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */; };
 		AAB48930258EEA2C005B040E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892F258EEA2C005B040E /* ContentView.swift */; };
 		AAB48932258EEA2F005B040E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB48931258EEA2F005B040E /* Assets.xcassets */; };
@@ -14,6 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA52D1FF259047E2006C7C9A /* rounded-mplus-1c-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-mplus-1c-heavy.ttf"; path = "../../../../Downloads/rounded-mplus-20150529/rounded-mplus-1c-heavy.ttf"; sourceTree = "<group>"; };
+		AA52D20C259047E2006C7C9A /* rounded-mplus-1mn-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-mplus-1mn-medium.ttf"; path = "../../../../Downloads/rounded-mplus-20150529/rounded-mplus-1mn-medium.ttf"; sourceTree = "<group>"; };
+		AA52D214259047E2006C7C9A /* rounded-mplus-1mn-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-mplus-1mn-bold.ttf"; path = "../../../../Downloads/rounded-mplus-20150529/rounded-mplus-1mn-bold.ttf"; sourceTree = "<group>"; };
+		AA52D215259047E2006C7C9A /* rounded-mplus-1c-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-mplus-1c-black.ttf"; path = "../../../../Downloads/rounded-mplus-20150529/rounded-mplus-1c-black.ttf"; sourceTree = "<group>"; };
+		AA52D216259047E2006C7C9A /* rounded-mplus-1c-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-mplus-1c-bold.ttf"; path = "../../../../Downloads/rounded-mplus-20150529/rounded-mplus-1c-bold.ttf"; sourceTree = "<group>"; };
+		AA52D21E259047E2006C7C9A /* rounded-mplus-1mn-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-mplus-1mn-light.ttf"; path = "../../../../Downloads/rounded-mplus-20150529/rounded-mplus-1mn-light.ttf"; sourceTree = "<group>"; };
+		AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ai_concierge.jpg; sourceTree = "<group>"; };
 		AAB4892A258EEA2C005B040E /* ReteraMaasSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReteraMaasSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReteraMaasSampleApp.swift; sourceTree = "<group>"; };
 		AAB4892F258EEA2C005B040E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -33,6 +47,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA52D1F92590461D006C7C9A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AA52D215259047E2006C7C9A /* rounded-mplus-1c-black.ttf */,
+				AA52D216259047E2006C7C9A /* rounded-mplus-1c-bold.ttf */,
+				AA52D1FF259047E2006C7C9A /* rounded-mplus-1c-heavy.ttf */,
+				AA52D214259047E2006C7C9A /* rounded-mplus-1mn-bold.ttf */,
+				AA52D21E259047E2006C7C9A /* rounded-mplus-1mn-light.ttf */,
+				AA52D20C259047E2006C7C9A /* rounded-mplus-1mn-medium.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		AA52D2532590CFEF006C7C9A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		AAB48921258EEA2C005B040E = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +87,8 @@
 		AAB4892C258EEA2C005B040E /* ReteraMaasSample */ = {
 			isa = PBXGroup;
 			children = (
+				AA52D2532590CFEF006C7C9A /* images */,
+				AA52D1F92590461D006C7C9A /* fonts */,
 				AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */,
 				AAB4892F258EEA2C005B040E /* ContentView.swift */,
 				AAB48931258EEA2F005B040E /* Assets.xcassets */,
@@ -126,8 +163,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA52D22A259047E3006C7C9A /* rounded-mplus-1c-heavy.ttf in Resources */,
+				AA52D241259047E3006C7C9A /* rounded-mplus-1c-bold.ttf in Resources */,
+				AA52D23F259047E3006C7C9A /* rounded-mplus-1mn-bold.ttf in Resources */,
+				AA52D237259047E3006C7C9A /* rounded-mplus-1mn-medium.ttf in Resources */,
 				AAB48935258EEA2F005B040E /* Preview Assets.xcassets in Resources */,
+				AA52D2552590D0E0006C7C9A /* ai_concierge.jpg in Resources */,
+				AA52D249259047E3006C7C9A /* rounded-mplus-1mn-light.ttf in Resources */,
 				AAB48932258EEA2F005B040E /* Assets.xcassets in Resources */,
+				AA52D240259047E3006C7C9A /* rounded-mplus-1c-black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

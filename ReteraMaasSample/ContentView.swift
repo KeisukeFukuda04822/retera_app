@@ -18,9 +18,13 @@ struct ContentView: View {
        
     var body: some View {
         VStack {
-            Text("リテラ対話デモツール")
-                .fontWeight(.medium)
+            VStack{
+                Text("リテラ対話デモツール")
+                    .fontWeight(.medium)
+                    .font(.custom("rounded-mplus-1c-black", size: 25))
+            }
             ZStack {
+                Spacer()
                 //self.backGroundColor().edgesIgnoringSafeArea(.horizontal).foregroundColor(Color.white)
                 //let backGroundColor = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .top, endPoint: .bottom)
                 self.backGroundColor().edgesIgnoringSafeArea(.all)
@@ -96,11 +100,21 @@ struct ContentView: View {
                     // 編集フラグがONの時に枠に影を付ける
                     .shadow(color: editting ? .blue : .clear, radius: 3)
             }
-            VStack(alignment: .center){
-                Spacer()
-                Text(response).bold()
+            HStack (alignment: .center){
+                Image("ai_concierge")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 120, height: 120, alignment: .leading)
+                Text(response)
+                    .font(.custom("rounded-mplus-1mn-bold", size: 15))
+                    // 枠線を描画
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.orange, lineWidth: 0.25)
+                    )
                 Spacer()
             }
+            .padding()      // 余白を追加
         }
     }
     /// 背景グラデーションを作成する
