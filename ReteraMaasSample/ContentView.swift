@@ -7,15 +7,31 @@
 // Cmd + / で一括コメントアウト
 
 import SwiftUI
+import Speech
+import AVFoundation
 
 struct ContentView: View {
    
+    // AI API
+    @State private var user_id = 1
     @State private var sentence = ""
     @State private var response = ""
-    //@State private var res_title = ""
+    @State private var response_num : Int = 0
+    @State private var response_score : Float = 0.00
     @State private var editting = false
     let url = URL(string: "http://100.64.1.16:30000/")
-       
+    
+    // 音声認識  変数
+    @ObservedObject private var speechRecorder = SpeechRecorder()
+    @State var showingAlert = false
+    
+    /// 背景グラデーションを作成する
+    private func backGroundColor() -> LinearGradient {
+        let gradientColor = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .top, endPoint: .bottom)
+        return gradientColor
+    }
+
+    
     var body: some View {
         VStack {
             VStack{
@@ -24,110 +40,193 @@ struct ContentView: View {
                     .font(.custom("rounded-mplus-1c-black", size: 25))
             }
             ZStack {
-                Spacer()
-                //self.backGroundColor().edgesIgnoringSafeArea(.horizontal).foregroundColor(Color.white)
-                //let backGroundColor = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .top, endPoint: .bottom)
-                self.backGroundColor().edgesIgnoringSafeArea(.all)
-                TextField("発話文を入力して下さい", text: $sentence,
-                          
-                    onEditingChanged: { begin in
-                        /// 入力開始処理
-                        if begin {
-                            self.editting = true    // 編集フラグをオン
-                            self.sentence = ""       // メッセージをクリア
-                            //self.res_title = ""       // メッセージをクリア
-                                
-                            /// 入力終了処理
-                        } else {
-                            self.editting = false   // 編集フラグをオフ
-                        }
-                    },
-
-                    /// リターンキーが押された時の処理
-                    onCommit: {
-                        //self.sentence = ""  // 入力域をクリア
-                        let return_json = "{\"text\":\"\(self.sentence)\"}".data(using: .utf8)
-                        // POSTを指定
-                        var request = URLRequest(url: url!)
-                        request.httpMethod = "POST"
-                        // POSTするデータをBodyとして設定
-                        request.httpBody = "os=iOS&version=11&language=日本語".data(using: .utf8)
-                        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                        request.httpBody = return_json
-                        
-                        // 新しくURLSessionインスタンスを作成
-                        //let session = URLSession(configuration: config)
-                        URLSession.shared.dataTask(with: request) { (data, response, error) in
-                            if error == nil, let data = data, let response = response as? HTTPURLResponse {
-                                // HTTPヘッダの取得
-                                print("Content-Type: \(response.allHeaderFields["Content-Type"] ?? "")")
-                                // HTTPステータスコード
-                                print("statusCode: \(response.statusCode)")
-                                
-                                if case 200..<300 = response.statusCode {
-                                    print("success")
-                                    print(String(data: data, encoding: .utf8) ?? "")
-                                    //var response_json = String(data: data, encoding: .utf8) ?? ""
-                                    //self.response = response_json.getForKey("response") as! String // mode="easy"
-                                    // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
+                self.backGroundColor().edgesIgnoringSafeArea(.horizontal).foregroundColor(Color.white)
+                VStack{
+                    VStack{
+                        TextField("発話文を入力して下さい", text: $sentence,
+                                  
+                            onEditingChanged: { begin in
+                                if begin { /// 入力開始処理
+                                    self.editting = true    // 編集フラグをオン
+                                    self.response = ""       // メッセージをクリア
+                                    self.response_num = 0       // メッセージをクリア
+                                    self.response_score = 0.00       // メッセージをクリア
                                     
-                                    do {
-                                        // dataをJSONパースし、変数"getJson"に格納
-                                        let getJson = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-
-                                        //self.response = (getJson["response"] as? String)!
-                                        // respponseを非同期にする
-                                        DispatchQueue.main.async{
-                                            self.response = (getJson["response"] as? String)!
-                                            print("finish")
-                                            //self.res_title = " -- 応答 --"
-                                        }
-                                        
-                                    } catch {
-                                        print ("JsonParseError")
-                                        return
-                                    }
+                                    /// 入力終了処理
                                 } else {
-                                    print("API request Error!")
-                                    self.response = "すみません、よく分かりません。"
+                                    self.editting = false   // 編集フラグをオフ
                                 }
-                                
+                            },
+                            /// リターンキーが押された時の処理
+                            onCommit: {
+                                var url_request = URLRequest(url: url!)
+                                let request_json = "{\"user_id\":\"\(user_id)\", \"text\":\"\(sentence)\"}".data(using: .utf8)
+                                //print(request_json)
+                                url_request.httpMethod = "POST"
+                                url_request.httpBody = "os=iOS&version=11&language=日本語".data(using: .utf8)
+                                url_request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                                url_request.httpBody = request_json
+                                let task = URLSession.shared.dataTask(with: url_request) { (data, response, error) in
+                                    if error == nil, let data = data, let response = response as? HTTPURLResponse {
+                                        print("Content-Type: \(response.allHeaderFields["Content-Type"] ?? "")") // HTTPヘッダの取得
+                                        print("statusCode: \(response.statusCode)") // HTTPステータスコード
+
+                                        if case 200..<300 = response.statusCode {
+                                            print("success")
+                                            print(String(data: data, encoding: .utf8) ?? "")
+                                            do {  // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
+                                                // dataをJSONパースし、変数"getJson"に格納
+                                                let getJson = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                                                DispatchQueue.main.async{ // responseを非同期にする
+                                                    self.response = (getJson["response"] as? String)!
+                                                    self.response_num = (getJson["res_num"] as? Int)!
+                                                    if let res_score = getJson.value(forKey: "res_score") as? NSNumber {
+                                                        self.response_score = res_score.floatValue
+                                                    } else {
+                                                        self.response_score = (getJson["res_score"] as? Float)!
+                                                    }
+                                                }
+                                            } catch {
+                                                print ("JsonParseError")
+                                                return
+                                            }
+                                        } else if case 500 = response.statusCode {
+                                            print("API Program Error!")
+                                            self.response = "すみません。サーバ側で問題が発生しているようです。"
+                                        } else {
+                                            print("API request Error!")
+                                            self.response = "すみません。サーバ側でレスポンス200以外を返しているようです。"
+                                        }
+                                    } else {
+                                        print("API Connection Error!")
+                                        self.response = "すみません。サーバとの接続がうまくできていないようです。"
+                                    }
+                                }
+                                task.resume()
                             }
-                        }.resume()
-                    })
-                    .textFieldStyle(RoundedBorderTextFieldStyle()) // 入力域を枠で囲む
-                    .padding()      // 余白を追加
-                    // 編集フラグがONの時に枠に影を付ける
-                    .shadow(color: editting ? .blue : .clear, radius: 3)
+                        )
+                        .modifier(ClearButton(text: $sentence))
+                        .multilineTextAlignment(.leading)
+                        .textFieldStyle(RoundedBorderTextFieldStyle()) // 入力域を枠で囲む
+                        .padding()      // 余白を追加
+                        .shadow(color: editting ? .blue : .clear, radius: 5) // 編集フラグがONの時に枠に影を付ける
+                        
+                        // マイクボタン
+                        Button(action: {
+                            if(AVCaptureDevice.authorizationStatus(for: AVMediaType.audio) == .authorized &&
+                                SFSpeechRecognizer.authorizationStatus() == .authorized){
+                                self.showingAlert = false
+                                self.speechRecorder.toggleRecording()
+                                if !self.speechRecorder.audioRunning {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+
+                                    }
+                                }
+                                sentence = self.speechRecorder.audioText
+                            }
+                            else{
+                                self.showingAlert = true
+                            }
+                        })
+                        {
+                            if !self.speechRecorder.audioRunning {
+                                Text("マイクON")
+                                    .foregroundColor(.white)
+                                    .font(.custom("rounded-mplus-1c-bold", size: 15))
+                                    .padding()
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.white, lineWidth: 1))
+                            } else {
+                                Text("マイクOFF")
+                                    .foregroundColor(.white)
+                                    .font(.custom("rounded-mplus-1c-bold", size: 15))
+                                    .padding()
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.white, lineWidth: 1))
+                                    .opacity(0.3)
+                            }
+                        }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("マイクの使用または音声の認識が許可されていません"))
+                        }
+                        
+                        // 入力した文章の表示
+                        VStack(alignment: .center){
+                            // マイクがONの時は音声認識を優先する。それ以外はテキスト文章を優先する
+                            if !self.speechRecorder.audioRunning {
+                                Text(sentence)
+                                    .foregroundColor(.white)
+                                    .font(.custom("rounded-mplus-1mn-bold", size: 16))
+                                    .opacity(0.8)
+                            } else {
+                                Text(self.speechRecorder.audioText)
+                                    .foregroundColor(.white)
+                                    .font(.custom("rounded-mplus-1mn-bold", size: 16))
+                                    .opacity(0.8)
+                            }
+                        }.padding()
+                    }
+                }.padding()
             }
             HStack (alignment: .center){
                 Image("ai_concierge")
                     .resizable()
                     .clipShape(Circle())
-                    .frame(width: 120, height: 120, alignment: .leading)
-                Text(response)
-                    .font(.custom("rounded-mplus-1mn-bold", size: 15))
-                    // 枠線を描画
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.orange, lineWidth: 0.25)
-                    )
+                    .frame(width: 100, height: 100, alignment: .leading)
+                Spacer()
+                Text(response).font(.custom("rounded-mplus-1mn-bold", size: 16))
                 Spacer()
             }
-            .padding()      // 余白を追加
+            HStack (alignment: .center){
+                Text("num : \(response_num)")
+                    .foregroundColor(.pink)
+                    .font(.custom("rounded-mplus-1mn-bold", size: 12))
+                    .opacity(0.5)
+                Text("prob : \(response_score)")
+                    .foregroundColor(.pink)
+                    .font(.custom("rounded-mplus-1mn-bold", size: 12))
+                    .opacity(0.5)
+            }
+            .onAppear{
+                AVCaptureDevice.requestAccess(for: AVMediaType.audio) { granted in
+                    OperationQueue.main.addOperation {
+
+                    }
+                }
+                SFSpeechRecognizer.requestAuthorization { status in
+                    OperationQueue.main.addOperation {
+                    }
+                }
+            }
+            .padding()
         }
     }
-    /// 背景グラデーションを作成する
-    private func backGroundColor() -> LinearGradient {
-        // 左上から右下にポイントを設定する。
-        //let start = UnitPoint.init(x: 0, y: 0) // 左上(始点)
-        //let end = UnitPoint.init(x: 1, y: 1) // 右下(終点)
-        // 「Color」は以前の「UIColor」からの変換もできるぞ！ 助かる。
-        //let colors = Gradient(colors: [Color(UIColor.blue), Color(UIColor.green), Color(UIColor.purple), Color(UIColor.green), Color(UIColor.green)])
-        //let gradientColor = LinearGradient(gradient: colors, startPoint: start, endPoint: end)
-        let gradientColor = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .top, endPoint: .bottom)
+}
 
-        return gradientColor
+struct ClearButton: ViewModifier
+{
+    @Binding var text: String
+
+    public func body(content: Content) -> some View
+    {
+        ZStack(alignment: .trailing)
+        {
+            content
+            if !text.isEmpty
+            {
+                Button(action:
+                {
+                    self.text = ""
+                })
+                {
+                    Image(systemName: "delete.left")
+                        .foregroundColor(Color(UIColor.opaqueSeparator))
+                }
+                .padding(.trailing, 8)
+            }
+        }
     }
 }
 
