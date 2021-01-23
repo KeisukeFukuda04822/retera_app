@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA3DBCBE25BC00C40024105B /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = AA3DBCBD25BC00C40024105B /* SwiftUICharts */; };
 		AA52D2552590D0E0006C7C9A /* ai_concierge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */; };
 		AAB4892E258EEA2C005B040E /* ReteraMaasSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */; };
 		AAB48930258EEA2C005B040E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892F258EEA2C005B040E /* ContentView.swift */; };
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA3DBCBE25BC00C40024105B /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,9 @@
 			dependencies = (
 			);
 			name = ReteraMaasSample;
+			packageProductDependencies = (
+				AA3DBCBD25BC00C40024105B /* SwiftUICharts */,
+			);
 			productName = ReteraMaasSample;
 			productReference = AAB4892A258EEA2C005B040E /* ReteraMaasSample.app */;
 			productType = "com.apple.product-type.application";
@@ -158,6 +163,9 @@
 				Base,
 			);
 			mainGroup = AAB48921258EEA2C005B040E;
+			packageReferences = (
+				AA3DBCBC25BC00C40024105B /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = AAB4892B258EEA2C005B040E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -384,6 +392,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA3DBCBC25BC00C40024105B /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA3DBCBD25BC00C40024105B /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3DBCBC25BC00C40024105B /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AAB48922258EEA2C005B040E /* Project object */;
 }
