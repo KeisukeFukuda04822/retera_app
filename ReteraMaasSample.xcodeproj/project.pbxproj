@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA3DBCBE25BC00C40024105B /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = AA3DBCBD25BC00C40024105B /* SwiftUICharts */; };
+		AA3DBD4F25C026280024105B /* AnalyzeTextServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DBD4E25C026280024105B /* AnalyzeTextServer.swift */; };
 		AA52D2552590D0E0006C7C9A /* ai_concierge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */; };
 		AAB4892E258EEA2C005B040E /* ReteraMaasSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */; };
 		AAB48930258EEA2C005B040E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892F258EEA2C005B040E /* ContentView.swift */; };
@@ -20,11 +21,11 @@
 		AAF18E9E25A7449300A062A7 /* rounded-mplus-1c-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAF18E9825A7449300A062A7 /* rounded-mplus-1c-bold.ttf */; };
 		AAF18E9F25A7449300A062A7 /* rounded-mplus-1mn-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAF18E9925A7449300A062A7 /* rounded-mplus-1mn-light.ttf */; };
 		AAF18EA325A74EFB00A062A7 /* SpeechRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF18EA225A74EFB00A062A7 /* SpeechRecorder.swift */; };
-		AAF18EA925ABF57200A062A7 /* mike.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAF18EA825ABF57200A062A7 /* mike.jpg */; };
 		AAF18EAF25AC2CF400A062A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF18EAE25AC2CF400A062A7 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA3DBD4E25C026280024105B /* AnalyzeTextServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeTextServer.swift; sourceTree = "<group>"; };
 		AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ai_concierge.jpg; sourceTree = "<group>"; };
 		AAB4892A258EEA2C005B040E /* ReteraMaasSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReteraMaasSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReteraMaasSampleApp.swift; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		AAF18E9825A7449300A062A7 /* rounded-mplus-1c-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1c-bold.ttf"; sourceTree = "<group>"; };
 		AAF18E9925A7449300A062A7 /* rounded-mplus-1mn-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1mn-light.ttf"; sourceTree = "<group>"; };
 		AAF18EA225A74EFB00A062A7 /* SpeechRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecorder.swift; sourceTree = "<group>"; };
-		AAF18EA825ABF57200A062A7 /* mike.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mike.jpg; sourceTree = "<group>"; };
 		AAF18EAE25AC2CF400A062A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +58,6 @@
 		AA52D2532590CFEF006C7C9A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				AAF18EA825ABF57200A062A7 /* mike.jpg */,
 				AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */,
 			);
 			path = images;
@@ -89,6 +88,7 @@
 				AAF18EA225A74EFB00A062A7 /* SpeechRecorder.swift */,
 				AAB4892F258EEA2C005B040E /* ContentView.swift */,
 				AAB48931258EEA2F005B040E /* Assets.xcassets */,
+				AA3DBD4E25C026280024105B /* AnalyzeTextServer.swift */,
 				AAB48936258EEA2F005B040E /* Info.plist */,
 				AAB48933258EEA2F005B040E /* Preview Content */,
 				AAF18EAE25AC2CF400A062A7 /* Images.xcassets */,
@@ -181,7 +181,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAF18E9F25A7449300A062A7 /* rounded-mplus-1mn-light.ttf in Resources */,
-				AAF18EA925ABF57200A062A7 /* mike.jpg in Resources */,
 				AAF18E9D25A7449300A062A7 /* rounded-mplus-1c-black.ttf in Resources */,
 				AAF18E9B25A7449300A062A7 /* rounded-mplus-1c-heavy.ttf in Resources */,
 				AAF18EAF25AC2CF400A062A7 /* Images.xcassets in Resources */,
@@ -203,6 +202,7 @@
 			files = (
 				AAB48930258EEA2C005B040E /* ContentView.swift in Sources */,
 				AAF18EA325A74EFB00A062A7 /* SpeechRecorder.swift in Sources */,
+				AA3DBD4F25C026280024105B /* AnalyzeTextServer.swift in Sources */,
 				AAB4892E258EEA2C005B040E /* ReteraMaasSampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
