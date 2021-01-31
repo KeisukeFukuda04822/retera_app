@@ -9,6 +9,8 @@
 import SwiftUI
 import Speech
 import AVFoundation
+import MapKit
+//import CoreLocation
 
 extension UIColor {
     var color: Color {
@@ -46,8 +48,14 @@ struct ContentView: View {
     @State private var editting = false
     @State private var showAlert = false
     @State private var res_delay = false
+    @State private var isModal = false
     @State var showClearButton = true
     @State var debug_mode = false
+
+    // MapView
+    // 以下を追記
+    @State var manager = CLLocationManager()
+    @State var alert = false
     
     // 音声認識  変数
     @ObservedObject private var speechRecorder = SpeechRecorder()
@@ -68,6 +76,7 @@ struct ContentView: View {
                     .font(Font.mainFont(size: 28))
                     //.font(.custom("rounded-mplus-1c-black", size: 25))
             }
+            .frame(width: 350, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             ZStack {
                 self.backGroundColor().edgesIgnoringSafeArea(.horizontal).foregroundColor(Color.white)
                 VStack{
@@ -98,6 +107,15 @@ struct ContentView: View {
                                         print("レスポンス：\(self.ai_server.response_tokens)")
                                         self.res_delay = true // 入力文の色を変更
                                     }
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.25) {
+                                        if self.ai_server.response_code == 300 ||
+                                            self.ai_server.response_code == 100 ||
+                                            self.ai_server.response_code == 410 ||
+                                            self.ai_server.response_code == 411 {
+                                            isModal = true
+                                        }
+                                    }
+                                    
                                 }
                             }
                         )
@@ -118,8 +136,10 @@ struct ContentView: View {
                                 SFSpeechRecognizer.authorizationStatus() == .authorized){
                                 self.showingAlert = false
                                 self.speechRecorder.toggleRecording()
+                                self.ai_server.response_tokens = []
+                                self.ai_server.response_colors = []
                                 if !self.speechRecorder.audioRunning {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     }
                                 }
                                 sentence = self.speechRecorder.audioText
@@ -183,8 +203,6 @@ struct ContentView: View {
                                 Group {
                                     if self.speechRecorder.audioRunning {
                                         Text(self.speechRecorder.audioText)
-                                    } else {
-                                        Text(self.sentence)
                                     }
                                 }
                                 .foregroundColor(.white)
@@ -199,6 +217,7 @@ struct ContentView: View {
                 // デバッグモードのON/OFF
                 Button(action:
                 {
+                    self.speechRecorder.audioText = ""
                     self.ai_server.response = ""
                     if self.debug_mode {
                         self.debug_mode = false
@@ -221,12 +240,30 @@ struct ContentView: View {
                             //.font(.custom("rounded-mplus-1mn-bold", size: 15))
                             .font(Font.subFont(size: 16))
                             .foregroundColor(Color.black)
+                        //self.ai_server.response = ""
                     }
+                    
 
                 }
             }
             .offset(x: -10, y: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
             .frame(width: 380, height: 150)
+            .sheet(isPresented: $isModal, onDismiss:{
+                self.ai_server.response=""
+                self.ai_server.response_tokens = []
+                self.ai_server.response_colors = []
+                })
+                {
+                    VStack {
+                        Spacer()
+                        Text("Maas Demo Maps")
+                            .font(Font.mainFont(size: 20))
+                        Spacer()
+                        MaasView(manager: $manager, alert: $alert).alert(isPresented: $alert) {
+                            Alert(title: Text("Please Enable Location Access In Setting Panel!!!"))
+                        }
+                    }
+                }
             // デバッグ用の値を出力
             if self.debug_mode {
                 HStack (alignment: .center){

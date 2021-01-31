@@ -9,9 +9,14 @@ import Foundation
 
 final class AnalyzeTextServer: ObservableObject {
     
-    private let url = URL(string: "http://100.64.1.16:30000/")
+    //private let ip : String = "10.173.15.37"
+    //private let ip : String = "192.168.11.5" // Yuka
+    private let ip : String = "100.64.1.16" // Office
+    //private let ip : String = "192.168.100.103" // mobile
+    private let port : String = "30000"
+    lazy private var url = URL(string: "http://\(ip):\(port)/")
     @Published var user_id: Int
-    @Published var sentence: String
+    @Published var sentence: String 
     @Published var response : String
     @Published var response_code : Int
     @Published var response_score : Float
@@ -33,7 +38,7 @@ final class AnalyzeTextServer: ObservableObject {
     func getData(user_id: Int, sentence: String) {
         var url_request = URLRequest(url: url!)
         let request_json = "{\"user_id\":\"\(user_id)\", \"text\":\"\(sentence)\"}".data(using: .utf8)
-        //print(request_json)
+        print(request_json!)
         url_request.httpMethod = "POST"
         url_request.httpBody = "os=iOS&version=11&language=日本語".data(using: .utf8)
         url_request.addValue("application/json", forHTTPHeaderField: "Content-Type")

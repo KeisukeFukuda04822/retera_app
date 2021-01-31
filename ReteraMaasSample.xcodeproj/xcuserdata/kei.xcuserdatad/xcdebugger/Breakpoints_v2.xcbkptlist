@@ -3,4 +3,159 @@
    uuid = "DF3977C0-956E-454B-92A1-648163B82757"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6063481-1751-4BE2-905F-049025154FE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReteraMaasSample/AnalyzeTextServer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "AnalyzeTextServer"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - d677924416469041"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of ReteraMaasSample.AnalyzeTextServer.response_tokens : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - f6b93d02b07941ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.response_tokens.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - bf2614300bb8b5a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.response_tokens.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "130">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - b6c6329162039bd4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.response_tokens.modify : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - dec826cbc5c57a68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.response_tokens.modify : Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - 43985d5f61b06b9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.$response_tokens.getter : Combine.Published&lt;Swift.Array&lt;Swift.String&gt;&gt;.Publisher"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "110">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - 27f0645f173afb91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.$response_tokens.setter : Combine.Published&lt;Swift.Array&lt;Swift.String&gt;&gt;.Publisher"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "233">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - 8e0c269da3f9e311"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.$response_tokens.modify : Combine.Published&lt;Swift.Array&lt;Swift.String&gt;&gt;.Publisher"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "D6063481-1751-4BE2-905F-049025154FE2 - 7043921557d8bbbb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReteraMaasSample.AnalyzeTextServer.$response_tokens.modify : Combine.Published&lt;Swift.Array&lt;Swift.String&gt;&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ReteraMaasSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kei/Desktop/ReteraMaasSample/ReteraMaasSample/AnalyzeTextServer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -10,6 +10,7 @@
 		AA3DBCBE25BC00C40024105B /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = AA3DBCBD25BC00C40024105B /* SwiftUICharts */; };
 		AA3DBD4F25C026280024105B /* AnalyzeTextServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DBD4E25C026280024105B /* AnalyzeTextServer.swift */; };
 		AA52D2552590D0E0006C7C9A /* ai_concierge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */; };
+		AA548FDE25C6E8F400768814 /* MaasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA548FDD25C6E8F300768814 /* MaasView.swift */; };
 		AAB4892E258EEA2C005B040E /* ReteraMaasSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */; };
 		AAB48930258EEA2C005B040E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4892F258EEA2C005B040E /* ContentView.swift */; };
 		AAB48932258EEA2F005B040E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB48931258EEA2F005B040E /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		AA3DBD4E25C026280024105B /* AnalyzeTextServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeTextServer.swift; sourceTree = "<group>"; };
 		AA52D2542590D0E0006C7C9A /* ai_concierge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ai_concierge.jpg; sourceTree = "<group>"; };
+		AA548FDD25C6E8F300768814 /* MaasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaasView.swift; sourceTree = "<group>"; };
 		AAB4892A258EEA2C005B040E /* ReteraMaasSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReteraMaasSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReteraMaasSampleApp.swift; sourceTree = "<group>"; };
 		AAB4892F258EEA2C005B040E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
@@ -87,6 +89,7 @@
 				AAB4892D258EEA2C005B040E /* ReteraMaasSampleApp.swift */,
 				AAF18EA225A74EFB00A062A7 /* SpeechRecorder.swift */,
 				AAB4892F258EEA2C005B040E /* ContentView.swift */,
+				AA548FDD25C6E8F300768814 /* MaasView.swift */,
 				AAB48931258EEA2F005B040E /* Assets.xcassets */,
 				AA3DBD4E25C026280024105B /* AnalyzeTextServer.swift */,
 				AAB48936258EEA2F005B040E /* Info.plist */,
@@ -202,6 +205,7 @@
 			files = (
 				AAB48930258EEA2C005B040E /* ContentView.swift in Sources */,
 				AAF18EA325A74EFB00A062A7 /* SpeechRecorder.swift in Sources */,
+				AA548FDE25C6E8F400768814 /* MaasView.swift in Sources */,
 				AA3DBD4F25C026280024105B /* AnalyzeTextServer.swift in Sources */,
 				AAB4892E258EEA2C005B040E /* ReteraMaasSampleApp.swift in Sources */,
 			);
